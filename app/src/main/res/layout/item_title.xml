@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:id="@+id/parents"
     android:layout_height="?actionBarSize"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <TextView
+        android:layout_gravity="center_vertical"
         android:id="@+id/item_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
