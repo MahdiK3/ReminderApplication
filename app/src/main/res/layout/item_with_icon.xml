@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/item_image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="20dp" />
 
@@ -18,7 +18,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="30dp"
-        android:text="sample"
         android:textColor="@color/colorDarkGray"
         android:textSize="16sp" />
 
