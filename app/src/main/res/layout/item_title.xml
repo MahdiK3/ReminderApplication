@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:id="@+id/parents"
-    android:layout_height="?actionBarSize"
+    android:id="@+id/parent"
+    android:layout_height="30dp"
     android:orientation="horizontal">
 
     <TextView
@@ -10,6 +10,7 @@
         android:id="@+id/item_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="12sp"
         android:textColor="@color/colorLightGray"
         android:layout_marginStart="20dp"/>
 
