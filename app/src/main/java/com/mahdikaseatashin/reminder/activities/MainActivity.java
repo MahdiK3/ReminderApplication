@@ -1,8 +1,9 @@
-package com.mahdikaseatashin.reminder;
+package com.mahdikaseatashin.reminder.activities;
 
 import android.os.Bundle;
 import android.view.View;
 
+import com.mahdikaseatashin.reminder.R;
 import com.mahdikaseatashin.reminder.ui_components.DrawerDivider;
 import com.mahdikaseatashin.reminder.ui_components.DrawerEntry;
 import com.mahdikaseatashin.reminder.ui_components.DrawerTitle;
@@ -30,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initNavigationDrawer() {
-
         List<DrawerEntry> drawerEntries = new ArrayList<>();
         drawerEntries.add(new DrawerWithIcon(R.drawable.ic_setting, getString(R.string.setting)));
         drawerEntries.add(new DrawerWithIcon(R.drawable.ic_star, getString(R.string.rate)));
