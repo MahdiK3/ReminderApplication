@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.mahdikaseatashin.reminder.R;
+import com.mahdikaseatashin.reminder.fragments.NavigationDrawerFragment;
 import com.mahdikaseatashin.reminder.ui_components.DrawerDivider;
 import com.mahdikaseatashin.reminder.ui_components.DrawerEntry;
 import com.mahdikaseatashin.reminder.ui_components.DrawerTitle;
@@ -15,10 +16,13 @@ import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class
+MainActivity extends AppCompatActivity {
 
-    Toolbar toolbar;
+    private Toolbar toolbar;
+    private NavigationDrawerFragment navDrawerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         drawerEntries.add(new DrawerWithSwitch(R.drawable.ic_moon, getString(R.string.night_mode)));
         drawerEntries.add(new DrawerWithIcon(R.drawable.ic_share, getString(R.string.share)));
         drawerEntries.add(new DrawerWithIcon(R.drawable.ic_exit, getString(R.string.exit)));
+        navDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+        navDrawerFragment.init((DrawerLayout) findViewById(R.id.drawer_layout),drawerEntries);
     }
 
     private void initToolbar() {
