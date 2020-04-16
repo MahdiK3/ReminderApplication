@@ -8,4 +8,20 @@
     <string name="night_mode">Night Mode</string>
     <string name="exit">Exit</string>
     <string name="share">Share</string>
+    <string name="app_creator">created by <u><b>Mahdi Kase Atashin</b></u></string>
+    <string name="app_designer">app designer <u><b>Mahdi Kase Atashin</b></u></string>
+    <string name="app_info">App Info</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="phone_number">phone number <u><b>+989025648561</b></u></string>
+    <string name="email">email <u><b>mahdikaseatashin@gmail.com</b></u></string>
+    <string name="social_media">Social Media</string>
+    <string name="telegram">telegram id <u><b>@Mahdi_K3F</b></u></string>
+    <string name="instagram_id">instagram id <u><b>Mahdi_K3F</b></u></string>
+    <string name="hello">Hello!</string>
+    <string name="suggestion">Noticed a bug or have a suggestion?</string>
+    <string name="feedback_value">Please, let us know. We value your feedback greatly and where possible will look to use in to improve our app.</string>
+    <string name="help_us">Help us make this app even better!</string>
+    <string name="new_feedback">New Feedback</string>
+    <string name="feedback_textbox">Please enter your feedback here</string>
+    <string name="send">send</string>
 </resources>
