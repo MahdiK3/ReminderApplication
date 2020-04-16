@@ -25,6 +25,14 @@ MainActivity extends AppCompatActivity {
     private NavigationDrawerFragment navDrawerFragment;
 
     @Override
+    public void onBackPressed() {
+        if (navDrawerFragment.isNavigationDrawerOpen())
+            navDrawerFragment.closeNavigationDrawer();
+        else
+            super.onBackPressed();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -46,7 +54,7 @@ MainActivity extends AppCompatActivity {
         drawerEntries.add(new DrawerWithIcon(R.drawable.ic_share, getString(R.string.share)));
         drawerEntries.add(new DrawerWithIcon(R.drawable.ic_exit, getString(R.string.exit)));
         navDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
-        navDrawerFragment.init((DrawerLayout) findViewById(R.id.drawer_layout),drawerEntries);
+        navDrawerFragment.init((DrawerLayout) findViewById(R.id.drawer_layout), drawerEntries);
     }
 
     private void initToolbar() {
@@ -58,7 +66,7 @@ MainActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                navDrawerFragment.openNavigationDrawer();
             }
         });
     }
