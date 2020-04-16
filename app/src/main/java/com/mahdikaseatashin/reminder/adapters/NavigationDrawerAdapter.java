@@ -5,12 +5,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.mahdikaseatashin.reminder.interfaces.OnNavigationViewClickListener;
 import com.mahdikaseatashin.reminder.R;
 import com.mahdikaseatashin.reminder.ui_components.DrawerDivider;
 import com.mahdikaseatashin.reminder.ui_components.DrawerEntry;
@@ -25,7 +27,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class NavigationDrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    private List<DrawerEntry> drawerEntries;
+    private LayoutInflater inflater;
     private static final String TAG = "NavigationDrawerAdapter";
+    private OnNavigationViewClickListener clickListener;
+
+    public void setClickListener(OnNavigationViewClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
 
     @Override
     public int getItemViewType(int position) {
@@ -46,8 +55,6 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<RecyclerView.V
         return -1;
     }
 
-    private List<DrawerEntry> drawerEntries;
-    private LayoutInflater inflater;
 
     public NavigationDrawerAdapter(List<DrawerEntry> drawerEntries, Context context) {
         this.drawerEntries = drawerEntries;
@@ -88,16 +95,37 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<RecyclerView.V
         if (entry instanceof DrawerTitle) {
             final ItemTitleVh vh = (ItemTitleVh) holder;
             vh.mTextView.setText(((DrawerTitle) entry).getTitle());
+            vh.parent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (clickListener != null)
+                        clickListener.onItemClick(((DrawerTitle) entry).getTitle());
+                }
+            });
         }
         if (entry instanceof DrawerWithIcon) {
             final ItemWithIconVh vh = (ItemWithIconVh) holder;
             vh.mImageView.setBackgroundResource(((DrawerWithIcon) entry).getIcon_view());
             vh.mTextView.setText(((DrawerWithIcon) entry).getIcon_name());
+            vh.parent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (clickListener != null)
+                        clickListener.onItemClick(((DrawerWithIcon) entry).getIcon_name());
+                }
+            });
         }
         if (entry instanceof DrawerWithSwitch) {
             final ItemWithSwitchVh vh = (ItemWithSwitchVh) holder;
             vh.mImageView.setBackgroundResource(((DrawerWithSwitch) entry).getIcon_view());
             vh.mTextView.setText(((DrawerWithSwitch) entry).getIcon_name());
+            vh.mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                    if (clickListener != null)
+                        clickListener.onSwitchStateChange(isChecked);
+                }
+            });
         }
         Log.e(TAG, "onBindViewHolder: ended!");
     }
