@@ -3,7 +3,6 @@ package com.mahdikaseatashin.reminder.fragments;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.DatePicker;
 
 import com.mahdikaseatashin.reminder.activities.AddReminderActivity;
@@ -21,8 +20,6 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         int year = Integer.parseInt(date.substring(0, firstMiddle));
         int month = Integer.parseInt(date.substring(firstMiddle + 1, secondMiddle));
         int day = Integer.parseInt(date.substring(secondMiddle + 1));
-        Log.e("My_Log", "Test: " + date + "and " + firstMiddle + " second " + secondMiddle);
-        Log.e("My_Log", "K3: " + year + "/" + month + "/" + day);
 
         // Create a new instance of DatePickerDialog and return it
         return new DatePickerDialog(getActivity(), this, year, month, day);

@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.widget.TimePicker;
 
 import com.mahdikaseatashin.reminder.activities.AddReminderActivity;
@@ -32,7 +31,6 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
         } else {
             m = "" + minute;
         }
-        Log.e("My_Log", "onTimeSet: " + hourOfDay + ":" + m);
         ((AddReminderActivity) getActivity()).setTime(hourOfDay + ":" + m);
 
     }
