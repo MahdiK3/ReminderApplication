@@ -126,7 +126,6 @@ public class AddReminderActivity extends AppCompatActivity implements OnAddRemin
         Snackbar.make(parent, getString(R.string.pro_version), Snackbar.LENGTH_SHORT).show();
     }
 
-
     private void openPhoneNumberDialogFragment() {
         AddPhoneNumberDialogFragment dialogFragment = new AddPhoneNumberDialogFragment();
         FragmentManager fm = getSupportFragmentManager();
@@ -171,7 +170,6 @@ public class AddReminderActivity extends AppCompatActivity implements OnAddRemin
         recyclerView.setAdapter(adapter);
         adapter.setClickListener(this);
     }
-
 
     private void initToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar_view_add_reminder);
