@@ -51,4 +51,6 @@
     <string name="yearly">Yearly</string>
     <string name="notification">Notification</string>
     <string name="alarm">Alarm</string>
+    <string name="pro_version">You can have this in pro version!</string>
+    <string name="enter_title">Please enter a title</string>
 </resources>

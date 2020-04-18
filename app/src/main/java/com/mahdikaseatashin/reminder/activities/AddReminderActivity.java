@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.mahdikaseatashin.reminder.R;
 import com.mahdikaseatashin.reminder.adapters.AddReminderAdapter;
 import com.mahdikaseatashin.reminder.fragments.AddPhoneNumberDialogFragment;
@@ -121,7 +122,8 @@ public class AddReminderActivity extends AppCompatActivity implements OnAddRemin
     }
 
     private void getContactInfo() {
-
+        View parent = findViewById(R.id.parent_add_reminder);
+        Snackbar.make(parent, getString(R.string.pro_version), Snackbar.LENGTH_SHORT).show();
     }
 
 
@@ -143,10 +145,10 @@ public class AddReminderActivity extends AppCompatActivity implements OnAddRemin
         floatingBtnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (reminderTitle.getHint().toString().equals(getString(R.string.reminder_hint))) {
-                    Toast.makeText(AddReminderActivity.this, "Please enter a title", Toast.LENGTH_SHORT).show();
+                if (reminderTitle.getText().toString().isEmpty()) {
+                    Toast.makeText(AddReminderActivity.this, getString(R.string.enter_title), Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(AddReminderActivity.this, "WTF", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -229,7 +231,8 @@ public class AddReminderActivity extends AppCompatActivity implements OnAddRemin
                 fragment.show(fm, getString(R.string.repeat));
                 break;
             case "Marker":
-
+                View parent = findViewById(R.id.parent_add_reminder);
+                Snackbar.make(parent, getText(R.string.pro_version), Snackbar.LENGTH_LONG).show();
                 break;
             case "Report as":
                 ReportAsDialogFragment reportDialogFragment = new ReportAsDialogFragment();
