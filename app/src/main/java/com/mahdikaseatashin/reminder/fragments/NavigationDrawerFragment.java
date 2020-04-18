@@ -31,7 +31,6 @@ public class NavigationDrawerFragment extends Fragment implements OnNavigationVi
 
     private View root;
     private DrawerLayout drawerLayout;
-    private RecyclerView recyclerView;
 
     @Nullable
     @Override
@@ -44,7 +43,7 @@ public class NavigationDrawerFragment extends Fragment implements OnNavigationVi
     public void init(DrawerLayout drawerLayout, List<DrawerEntry> drawerEntries) {
         this.drawerLayout = drawerLayout;
 
-        recyclerView = root.findViewById(R.id.nav_drawer_recycler_view);
+        RecyclerView recyclerView = root.findViewById(R.id.nav_drawer_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
 
@@ -78,7 +77,7 @@ public class NavigationDrawerFragment extends Fragment implements OnNavigationVi
                     shareIntent.putExtra(Intent.EXTRA_SUBJECT, "This is an amazing app for scheduling your time of the week!");
                     String shareMessage = "\nLet me recommend you this application\n\n";
 //                    shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID + "\n\n";
-                    shareMessage = shareMessage + "App has not been officially released yet!" + BuildConfig.APPLICATION_ID + "\n\n";
+                    shareMessage = shareMessage + "App has not been officially released yet!\n build config is -> " + BuildConfig.APPLICATION_ID + "\n\n";
                     shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
                     startActivity(Intent.createChooser(shareIntent, "choose one"));
                 } catch (Exception e) {
