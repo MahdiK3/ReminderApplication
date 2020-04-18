@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent_add_reminder"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context=".activities.AddReminderActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_view_add_reminder"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_text_add_reminder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="@android:color/transparent"
+            android:hint="@string/reminder_hint"
+            android:inputType="text"
+            android:paddingBottom="10dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#ddd"
+            tools:ignore="Autofill" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/colorPrimary" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp">
+
+            <ImageView
+                android:id="@+id/icon_phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:background="?selectableItemBackground"
+                android:contentDescription="@string/icon_phone"
+                android:padding="5dp"
+                app:srcCompat="@drawable/ic_phone" />
+
+            <ImageView
+                android:id="@+id/icon_contacts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:contentDescription="@string/icon_contacts"
+                android:padding="5dp"
+                app:srcCompat="@drawable/ic_contacts" />
+
+            <ImageView
+                android:id="@+id/icon_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:contentDescription="@string/icon_card_gift"
+                android:padding="5dp"
+                app:srcCompat="@drawable/ic_card_gift" />
+
+            <ImageView
+                android:id="@+id/icon_keyboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:contentDescription="@string/icon_keyboard"
+                android:padding="5dp"
+                app:srcCompat="@drawable/ic_keyboard" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimaryDark">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/layout_top_round_bg" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floating_action_button_save"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="25dp"
+                android:src="@drawable/ic_done"
+                app:fabSize="mini" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floating_action_button_cancel"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="80dp"
+                android:src="@drawable/ic_cancel"
+                app:fabSize="mini" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/layout_bottom_round_bg">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/add_reminder_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</RelativeLayout>

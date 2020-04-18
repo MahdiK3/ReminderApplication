@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="@string/repeat"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_repeat"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp">
+
+        <RadioButton
+            android:id="@+id/radio_button_once"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:text="@string/once" />
+
+        <RadioButton
+            android:id="@+id/radio_button_hourly"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:text="@string/hourly" />
+
+        <RadioButton
+            android:id="@+id/radio_button_daily"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:text="@string/daily" />
+
+        <RadioButton
+            android:id="@+id/radio_button_weekly"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:text="@string/weekly" />
+
+        <RadioButton
+            android:id="@+id/radio_button_monthly"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:text="@string/monthly" />
+
+        <RadioButton
+            android:id="@+id/radio_button_yearly"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:text="@string/yearly" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/text_view_cancel_repeat_dialog_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="?selectableItemBackground"
+            android:padding="10dp"
+            android:text="@string/cancel"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/text_view_save_repeat_dialog_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="25dp"
+            android:background="?selectableItemBackground"
+            android:paddingBottom="10dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:paddingTop="10dp"
+            android:text="@string/ok"
+            android:textColor="@color/colorPrimaryDark" />
+    </LinearLayout>
+</LinearLayout>
