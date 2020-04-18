@@ -1,8 +1,10 @@
 package com.mahdikaseatashin.reminder.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mahdikaseatashin.reminder.R;
 import com.mahdikaseatashin.reminder.fragments.NavigationDrawerFragment;
 import com.mahdikaseatashin.reminder.ui_components.DrawerDivider;
@@ -21,7 +23,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 public class
 MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
     private NavigationDrawerFragment navDrawerFragment;
 
     @Override
@@ -40,6 +41,15 @@ MainActivity extends AppCompatActivity {
         initToolbar();
 
         initNavigationDrawer();
+
+        FloatingActionButton floatingActionButton = findViewById(R.id.floating_action_button_add);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), AddReminderActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initNavigationDrawer() {
@@ -58,7 +68,7 @@ MainActivity extends AppCompatActivity {
     }
 
     private void initToolbar() {
-        toolbar = findViewById(R.id.toolbar_view);
+        Toolbar toolbar = findViewById(R.id.toolbar_view);
         toolbar.setTitle(getString(R.string.app_name));
         toolbar.setNavigationIcon(R.drawable.ic_menu);
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
