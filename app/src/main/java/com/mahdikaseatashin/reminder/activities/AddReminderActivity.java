@@ -9,7 +9,6 @@ import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -211,8 +210,8 @@ public class AddReminderActivity extends AppCompatActivity implements OnAddRemin
 //                        radioGroup.check(R.id.radio_button_once);
                         break;
                     case "Daily":
-                        RadioButton daily = findViewById(R.id.radio_button_daily);
-                        radioGroup.check(R.id.radio_button_daily);
+//                        RadioButton daily = findViewById(R.id.radio_button_daily);
+//                        radioGroup.check(R.id.radio_button_daily);
 //                        ((RadioButton) radioGroup.getChildAt(2)).setChecked(true);
                         break;
                     case "Weekly":
