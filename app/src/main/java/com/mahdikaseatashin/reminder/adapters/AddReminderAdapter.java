@@ -51,7 +51,6 @@ public class AddReminderAdapter extends RecyclerView.Adapter<AddReminderAdapter.
             public void onClick(View view) {
                 if (clickListener != null)
                     clickListener.onAddReminderItemClick(adapter.getItem_name());
-
             }
         });
     }

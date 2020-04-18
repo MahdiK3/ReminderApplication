@@ -38,7 +38,6 @@
     <string name="report">Report as</string>
     <string name="six_am">6:00</string>
     <string name="no_marker">No Marker</string>
-    <string name="notification">Notification</string>
     <string name="enter_the_phone_number">Enter the Phone Number</string>
     <string name="example_phone_number">e.g. +989123456789</string>
     <string name="ok">OK</string>
@@ -50,4 +49,6 @@
     <string name="weekly">Weekly</string>
     <string name="monthly">Monthly</string>
     <string name="yearly">Yearly</string>
+    <string name="notification">Notification</string>
+    <string name="alarm">Alarm</string>
 </resources>

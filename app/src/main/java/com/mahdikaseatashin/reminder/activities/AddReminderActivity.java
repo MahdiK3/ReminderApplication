@@ -9,7 +9,6 @@ import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -18,7 +17,10 @@ import com.mahdikaseatashin.reminder.R;
 import com.mahdikaseatashin.reminder.adapters.AddReminderAdapter;
 import com.mahdikaseatashin.reminder.fragments.AddPhoneNumberDialogFragment;
 import com.mahdikaseatashin.reminder.fragments.BirthdayDialogFragment;
+import com.mahdikaseatashin.reminder.fragments.DatePickerFragment;
 import com.mahdikaseatashin.reminder.fragments.RepeatDialogFragment;
+import com.mahdikaseatashin.reminder.fragments.ReportAsDialogFragment;
+import com.mahdikaseatashin.reminder.fragments.TimePickerFragment;
 import com.mahdikaseatashin.reminder.interfaces.OnAddReminderItemClickListener;
 import com.mahdikaseatashin.reminder.ui_components.AddReminderItems;
 
@@ -31,6 +33,7 @@ import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,14 +45,11 @@ public class AddReminderActivity extends AppCompatActivity implements OnAddRemin
     private ImageView icon_keyboard;
     private AddReminderAdapter adapter;
     private List<AddReminderItems> addReminderItems;
-    RadioGroup radioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_reminder);
-
-        radioGroup = findViewById(R.id.radio_group_repeat);
 
         reminderTitle = findViewById(R.id.edit_text_add_reminder);
         ImageView icon_phone_number = findViewById(R.id.icon_phone_number);
@@ -105,7 +105,6 @@ public class AddReminderActivity extends AppCompatActivity implements OnAddRemin
             }
         });
 
-        initRadioButtons();
 
         initToolbar();
 
@@ -113,10 +112,6 @@ public class AddReminderActivity extends AppCompatActivity implements OnAddRemin
 
         initFloatingActionButton();
 
-    }
-
-    private void initRadioButtons() {
-//        repeat.check(R.id.radio_button_once);
     }
 
     private void openBirthdayNameDialogFragment() {
@@ -191,10 +186,14 @@ public class AddReminderActivity extends AppCompatActivity implements OnAddRemin
     public void onAddReminderItemClick(String item_name) {
         switch (item_name) {
             case "Date":
-
+                String strDate = addReminderItems.get(0).getItem_text();
+                DialogFragment datePickerFragment = new DatePickerFragment();
+                datePickerFragment.show(getSupportFragmentManager(), strDate);
                 break;
             case "Time":
-
+                String strTime = addReminderItems.get(1).getItem_text();
+                DialogFragment timePickerFragment = new TimePickerFragment();
+                timePickerFragment.show(getSupportFragmentManager(), strTime);
                 break;
             case "Repeat":
                 RepeatDialogFragment fragment = new RepeatDialogFragment();
@@ -233,7 +232,9 @@ public class AddReminderActivity extends AppCompatActivity implements OnAddRemin
 
                 break;
             case "Report as":
-
+                ReportAsDialogFragment reportDialogFragment = new ReportAsDialogFragment();
+                FragmentManager reportFragmentManager = getSupportFragmentManager();
+                reportDialogFragment.show(reportFragmentManager, getString(R.string.report));
                 break;
         }
     }
@@ -250,6 +251,21 @@ public class AddReminderActivity extends AppCompatActivity implements OnAddRemin
 
     public void setRepeat(String repeat) {
         addReminderItems.get(2).setItem_text(repeat);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void setReport(String report) {
+        addReminderItems.get(4).setItem_text(report);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void setTime(String time) {
+        addReminderItems.get(1).setItem_text(time);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void setDate(String date) {
+        addReminderItems.get(0).setItem_text(date);
         adapter.notifyDataSetChanged();
     }
 }
