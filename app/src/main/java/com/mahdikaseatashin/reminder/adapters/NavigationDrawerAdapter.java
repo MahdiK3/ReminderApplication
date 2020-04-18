@@ -1,7 +1,6 @@
 package com.mahdikaseatashin.reminder.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.mahdikaseatashin.reminder.interfaces.OnNavigationViewClickListener;
 import com.mahdikaseatashin.reminder.R;
+import com.mahdikaseatashin.reminder.interfaces.OnNavigationViewClickListener;
 import com.mahdikaseatashin.reminder.ui_components.DrawerDivider;
 import com.mahdikaseatashin.reminder.ui_components.DrawerEntry;
 import com.mahdikaseatashin.reminder.ui_components.DrawerTitle;
@@ -29,7 +28,6 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     private List<DrawerEntry> drawerEntries;
     private LayoutInflater inflater;
-    private static final String TAG = "NavigationDrawerAdapter";
     private OnNavigationViewClickListener clickListener;
 
     public void setClickListener(OnNavigationViewClickListener clickListener) {
@@ -38,7 +36,6 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public int getItemViewType(int position) {
-        Log.e(TAG, "getItemViewType: called!");
         if (drawerEntries.get(position) instanceof DrawerDivider) {
             return 0;
         }
@@ -51,7 +48,6 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<RecyclerView.V
         if (drawerEntries.get(position) instanceof DrawerWithSwitch) {
             return 3;
         }
-        Log.e(TAG, "getItemViewType: error!");
         return -1;
     }
 
@@ -64,7 +60,6 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<RecyclerView.V
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        Log.e(TAG, "onCreateViewHolder: called!");
         View itemLayoutView;
         switch (viewType) {
             case 0:
@@ -84,13 +79,11 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<RecyclerView.V
                 ItemWithSwitchVh switchVh = new ItemWithSwitchVh(itemLayoutView);
                 return switchVh;
         }
-        Log.e(TAG, "onCreateViewHolder: error!");
         return null;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Log.e(TAG, "onBindViewHolder: called!");
         final DrawerEntry entry = drawerEntries.get(position);
         if (entry instanceof DrawerTitle) {
             final ItemTitleVh vh = (ItemTitleVh) holder;
@@ -127,12 +120,10 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<RecyclerView.V
                 }
             });
         }
-        Log.e(TAG, "onBindViewHolder: ended!");
     }
 
     @Override
     public int getItemCount() {
-        Log.e(TAG, "getItemCount: called!");
         return drawerEntries.size();
     }
 
